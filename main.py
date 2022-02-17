@@ -27,7 +27,14 @@ def stoutrank():
     json_data = response.json()
     for x in json_data["players"]:
         if x["gameName"] == "SOL Stout":
-            return "Stout is currently ranked #" + str(x["leaderboardRank"])+ " on the leaderboard with " + str(x["numberOfWins"]) + " wins and a ranked rating of " + str(x["rankedRating"])            
+            return "Stout is currently ranked #" + str(x["leaderboardRank"])+ " on the leaderboard with " + str(x["numberOfWins"]) + " wins and a ranked rating of " + str(x["rankedRating"])      
+@app.route('/leon', methods=['POST', 'GET'])
+def joshRank():
+    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/JoshMun/Mun")
+    json_data = response.json()
+    x = json_data["data"]
+    return "Josh is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
+
 
 if __name__ == "__main__":
     app.run(debug=True)
