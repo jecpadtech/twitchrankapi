@@ -54,9 +54,9 @@ def mmr():
             y.append(x["mmr_change_to_last_game"])
     for n in y:
         if n>0:
-            a.append("L")
-        else:
             a.append("W")
+        else:
+            a.append("L")
     for l in a:
         if l == "W":
             wins+=1
