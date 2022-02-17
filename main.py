@@ -62,7 +62,7 @@ def mmr():
             wins+=1
         else:
             loss +=1
-    return "Josh has won " + str(wins) + " games today and lost " + str(loss) + " games today. " + "Record- " + str(a)
+    return "Josh has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a)
 
 
 if __name__ == "__main__":
