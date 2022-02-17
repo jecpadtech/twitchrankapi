@@ -64,7 +64,7 @@ def mmrswede():
             loss +=1
     return "Josh has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a)
 @app.route('/swedish/record', methods=['POST', 'GET'])
-def mmr():
+def wasurecord():
     y=[]
     a=[]
     wins = 0
