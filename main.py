@@ -27,7 +27,7 @@ def stoutrank():
     json_data = response.json()
     for x in json_data["players"]:
         if x["gameName"] == "SOL Stout":
-            return "Stout is currently ranked #" + str(x["leaderboardRank"])+ " on the leaderboard with " + str(x["numberOfWins"])            
+            return "Stout is currently ranked #" + str(x["leaderboardRank"])+ " on the leaderboard with " + str(x["numberOfWins"]) + " wins and a ranked rating of " + str(x["rankedRating"])            
 
 if __name__ == "__main__":
     app.run(debug=True)
