@@ -37,7 +37,7 @@ def joshRank():
     x = json_data["data"]
     return "Josh is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
 @app.route('/josh/record', methods=['POST', 'GET'])
-def mmr():
+def mmrswede():
     y=[]
     a=[]
     wins = 0
