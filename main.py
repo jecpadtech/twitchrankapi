@@ -119,7 +119,7 @@ def wasummr():
             loss +=1
     return "Wasu has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a)
 @app.route('/leon/record', methods=['POST', 'GET'])
-def mmrswede():
+def leonrec():
     y=[]
     a=[]
     wins = 0
