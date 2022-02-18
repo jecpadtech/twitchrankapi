@@ -6,7 +6,7 @@ from datetime import datetime
 
 @app.route('/')
 def hello():
-    return "Valorant Record/Leaderboard command for Nightbot \n DM Vineyard__ on twitch or Vinayak9769#0861 on discord for a page!"
+    return "Valorant Record/Leaderboard command for Nightbot. DM Vineyard__ on twitch or Vinayak9769#0861 on discord for a page!"
 
 @app.route('/leon', methods=['POST', 'GET'])
 def getrank():
