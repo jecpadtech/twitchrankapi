@@ -179,5 +179,32 @@ def eggorec():
         else:
             loss +=1
     return "Eggo has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a)
+@app.route('/kyle/record', methods=['POST', 'GET'])
+def kylerec():
+    y=[]
+    a=[]
+    wins = 0
+    loss = 0
+    resultString = ""
+    today = datetime.today()
+    currentDate = today.strftime("%B %d, %Y")
+    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/KYCA/KYCA")
+    json_data = response.json()
+    for x in json_data["data"]:
+        splitString = x["date"].split()
+        newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+        if currentDate == newDate:
+            y.append(x["mmr_change_to_last_game"])
+    for n in y:
+        if n>0:
+            a.append("W")
+        else:
+            a.append("L")
+    for l in a:
+        if l == "W":
+            wins+=1
+        else:
+            loss +=1
+    return "Kyle has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a)
 if __name__ == "__main__":
     app.run(debug=True)
