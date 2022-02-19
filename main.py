@@ -82,7 +82,7 @@ def kyleRecord():
 def linkaRec():
     return getRecord("Pancakes","1313","Linka")
 @app.route('/linka', methods=['POST', 'GET'])
-def kyleRank():
+def linkaRank():
     response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/Pancakes/1313")
     json_data = response.json()
     x = json_data["data"]
