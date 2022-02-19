@@ -49,7 +49,7 @@ def leonRecord():
     return getRecord("LJPH","018","Leon")
 @app.route('/Stout', methods=['POST', 'GET'])
 def stoutrank():
-    return getRank("SOL Stout","LUL","na")
+    return getRank("SOL Stout","Stout","na")
 @app.route('/josh', methods=['POST', 'GET'])
 def joshRank():
     response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/JoshMun/Mun")
@@ -74,10 +74,19 @@ def kyleRank():
     json_data = response.json()
     x = json_data["data"]
     return "Kyle is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
+
 @app.route('/kyle/record', methods=['POST', 'GET'])
 def kyleRecord():    
     return getRecord("KYCA","KYCA","Kyle")
-
+@app.route('/linka/record', methods=['POST', 'GET'])
+def linkaRec():
+    return getRecord("Pancakes","1313","Linka")
+@app.route('/linka', methods=['POST', 'GET'])
+def kyleRank():
+    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/Pancakes/1313")
+    json_data = response.json()
+    x = json_data["data"]
+    return "Linka is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
 
 
 
