@@ -74,6 +74,9 @@ def kyleRank():
     json_data = response.json()
     x = json_data["data"]
     return "Kyle is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
+@app.route('/eggo/record', methods=['POST', 'GET'])
+def eggoRec():
+    return getRecord("egnarO5","718", "Eggo")
 
 @app.route('/kyle/record', methods=['POST', 'GET'])
 def kyleRecord():    
