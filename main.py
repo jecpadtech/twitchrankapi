@@ -51,7 +51,7 @@ def hello():
 def leonRank():
     return getRank("LJPH", "Leon","eu")
 @app.route('/leon/record', methods=['POST', 'GET'])
-def getLeonRec:
+def getLeonRec():
     y=[]
     a=[]
     wins = 0
