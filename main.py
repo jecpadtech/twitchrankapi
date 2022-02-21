@@ -40,7 +40,7 @@ def getRecord(name,tag,irlname):
         else:
             draw +=1
         
-    return irlname + " has won " + str(wins) + " games today and lost " + str(loss) + " games today. " + "Record- " + str(a)
+    return irlname + " has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a)
 
 @app.route('/')
 def hello():
