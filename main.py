@@ -60,7 +60,7 @@ def getLeonRec():
     resultString = ""
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/LJPH/018)
+    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/LJPH/018")
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
