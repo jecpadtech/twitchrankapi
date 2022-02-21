@@ -28,7 +28,7 @@ def getRecord(name,tag,irlname):
     for n in y:
         if n>0:
             a.append("W")
-        elif 0>n>10:
+        elif 0>=n>10:
             a.append("T")
         else:
             a.append("L")
