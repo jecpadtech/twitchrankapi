@@ -51,8 +51,38 @@ def hello():
 def leonRank():
     return getRank("LJPH", "Leon","eu")
 @app.route('/leon/record', methods=['POST', 'GET'])
-def leonRecord():
-    return getRecord("LJPH","018","Leon")
+def getLeonRec:
+    y=[]
+    a=[]
+    wins = 0
+    loss = 0
+    draw = 0
+    resultString = ""
+    today = datetime.today()
+    currentDate = today.strftime("%B %d, %Y")
+    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/LJPH/018)
+    json_data = response.json()
+    for x in json_data["data"]:
+        splitString = x["date"].split()
+        newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+        if currentDate == newDate:
+            y.append(x["mmr_change_to_last_game"])
+    for n in y:
+        if n>0:
+            a.append("W")
+        elif 0>n>10:
+            a.append("T")
+        else:
+            a.append("L")
+    for l in a:
+        if l == "W":
+            wins+=1
+        elif l == "L":
+            loss +=1
+        else:
+            draw +=1
+        
+    return "Leon has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a.reverse())
 @app.route('/Stout', methods=['POST', 'GET'])
 def stoutrank():
     return getRank("SOL Stout","Stout","na")
