@@ -14,6 +14,7 @@ def getRecord(name,tag,irlname):
     a=[]
     wins = 0
     loss = 0
+    draw = 0
     resultString = ""
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
@@ -27,13 +28,18 @@ def getRecord(name,tag,irlname):
     for n in y:
         if n>0:
             a.append("W")
+        elif 0>n>10:
+            a.append("T")
         else:
             a.append("L")
     for l in a:
         if l == "W":
             wins+=1
-        else:
+        elif l == "L":
             loss +=1
+        else:
+            draw +=1
+        
     return irlname + " has won " + str(wins) + " games today and lost " + str(loss) + " games today. " + "Record- " + str(a)
 
 @app.route('/')
