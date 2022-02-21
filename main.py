@@ -82,7 +82,7 @@ def getLeonRec():
         else:
             draw +=1
         
-    return "Leon has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a.reverse())
+    return "Leon has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a[::-1])
 @app.route('/Stout', methods=['POST', 'GET'])
 def stoutrank():
     return getRank("SOL Stout","Stout","na")
