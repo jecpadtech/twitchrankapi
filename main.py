@@ -145,7 +145,9 @@ def linkaRank():
 @app.route('/josh/maps', methods=['POST', 'GET'])
 def joshMaps():
     return maps("JoshMun","Mun")
-
+@app.route('/leon/maps', methods=['POST', 'GET'])
+def leonMaps():
+    return maps("LJPH","018")
 
 
 if __name__ == "__main__":
