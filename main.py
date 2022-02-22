@@ -179,7 +179,7 @@ def joshMaps():
 def leonMaps():
     return maps("LJPH","018")
 @app.route('/linka/maps', methods=['POST', 'GET'])
-def linkaMaps()
+def linkaMaps():
     return maps("Pancakes","1313")
 
 if __name__ == "__main__":
