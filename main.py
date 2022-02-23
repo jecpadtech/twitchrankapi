@@ -183,7 +183,7 @@ def linkaMaps():
     return maps("Pancakes","1313")
 @app.route('/stout/record', methods=['POST', 'GET'])
 def stoutRec():
-    return maps("SOL Stout","LUL", "Stout")
+    return getRecord("SOL Stout","LUL", "Stout")
 
 if __name__ == "__main__":
     app.run(debug=True)
