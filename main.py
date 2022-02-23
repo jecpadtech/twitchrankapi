@@ -215,7 +215,7 @@ def stoutRec():
         
     return "Stout has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a) 
 @app.route('/korneen/record', methods=['POST', 'GET'])
-def stoutRec():    
+def korneenRec():    
     y=[]
     a=[]
     wins = 0
