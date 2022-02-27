@@ -254,7 +254,7 @@ def alexRecord():
     return getRecord("FakeAnanas","TTV","FakeAnanas")
 @app.route('/josh/leaderboard', methods=['POST', 'GET'])
 def joshLeaderboard():    
-    return getRecord("JoshMun","Josh","eu")
+    return getRank("JoshMun","Josh","eu")
 
 
 if __name__ == "__main__":
