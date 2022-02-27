@@ -250,6 +250,9 @@ def korneenRec():
 @app.route('/alex/record', methods=['POST', 'GET'])
 def alexRecord():    
     return getRecord("FakeAnanas","TTV","FakeAnanas")
+@app.route('/alex/leaderboard', methods=['POST', 'GET'])
+def alexLeaderboard():    
+    return getRecord("FakeAnanas","FakeAnanas","eu")
 
 
 if __name__ == "__main__":
