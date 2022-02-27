@@ -247,6 +247,9 @@ def korneenRec():
             draw +=1
         
     return "Korneen has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a) 
+@app.route('/alex/record', methods=['POST', 'GET'])
+def alexRecord():    
+    return getRecord("FakeAnanas","TTV","FakeAnanas")
 
 
 if __name__ == "__main__":
