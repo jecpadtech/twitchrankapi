@@ -4,11 +4,14 @@ from datetime import datetime
 app = Flask(__name__)
 
 def getRank(name,irlname,region):
-    response = requests.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/" + region)
-    json_data = response.json()
-    for x in json_data["players"]:
-        if x["gameName"] == name:
-            return irlname + " is currently ranked #" + str(x["leaderboardRank"])+ " on the leaderboard with " + str(x["numberOfWins"]) + " wins and a ranked rating of " + str(x["rankedRating"])
+    try:
+        response = requests.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/" + region)
+        json_data = response.json()
+        for x in json_data["players"]:
+            if x["gameName"] == name:
+                return irlname + " is currently ranked #" + str(x["leaderboardRank"])+ " on the leaderboard with " + str(x["numberOfWins"]) + " wins and a ranked rating of " + str(x["rankedRating"])
+    except:
+        return "Failed to find " + irlname + " on the leaderboard"
 def getRecord(name,tag,irlname):
     y=[]
     a=[]
@@ -41,8 +44,11 @@ def getRecord(name,tag,irlname):
             loss +=1
         else:
             draw +=1
+    if wins == 0 and loss == 0 and draw == 0:
+        return "Wait for a competetive game to end!"
+    else:
+        return irlname + " has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a)
     
-    return irlname + " has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a)
 def maps(name,tag):
     mapList = []
     response = requests.get("https://api.henrikdev.xyz/valorant/v3/matches/eu/"+name+"/"+tag)
