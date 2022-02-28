@@ -29,7 +29,7 @@ def getRecord(name,tag,irlname):
         if currentDate == newDate:
             y.append(x["mmr_change_to_last_game"])
     for n in y:
-        if n>0:
+        if n>10:
             a.append("W")
         elif 0>=n>10:
             a.append("T")
@@ -92,7 +92,7 @@ def getLeonRec():
         if currentDate == newDate:
             y.append(x["mmr_change_to_last_game"])
     for n in y:
-        if n>0:
+        if n>10:
             a.append("W")
         elif 0>n>10:
             a.append("T")
@@ -159,7 +159,7 @@ def linkaRec():
         if currentDate == newDate:
             y.append(x["mmr_change_to_last_game"])
     for n in y:
-        if n>0:
+        if n>10:
             a.append("W")
         elif 0>n>10:
             a.append("T")
@@ -207,7 +207,7 @@ def stoutRec():
         if currentDate == newDate:
             y.append(x["mmr_change_to_last_game"])
     for n in y:
-        if n>0:
+        if n>10:
             a.append("W")
         elif 0>n>10:
             a.append("T")
