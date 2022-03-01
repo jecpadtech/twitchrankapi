@@ -25,13 +25,18 @@ def getRecord(name,tag,irlname):
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
-        newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+        if int(splitString[2].translate({ord(','): None})) <10:
+            newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+        else:
+            newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+
         if currentDate == newDate:
             y.append(x["mmr_change_to_last_game"])
+        print(splitString)
     for n in y:
         if n>10:
             a.append("W")
-        elif 10>=n>=0:
+        elif 0>=n>10:
             a.append("T")
         elif n == -3:
             pass
@@ -45,7 +50,7 @@ def getRecord(name,tag,irlname):
         else:
             draw +=1
     if wins == 0 and loss == 0 and draw == 0:
-        return "Wait for a competetive game to end!"
+        return "Wait for a competitive game to end!"
     else:
         return irlname + " has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a)
     
@@ -88,13 +93,16 @@ def getLeonRec():
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
-        newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+        if int(splitString[2].translate({ord(','): None})) <10:
+            newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+        else:
+            newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
         if currentDate == newDate:
             y.append(x["mmr_change_to_last_game"])
     for n in y:
         if n>10:
             a.append("W")
-        elif 10>=n>=0:
+        elif 0>n>10:
             a.append("T")
         else:
             a.append("L")
@@ -155,7 +163,10 @@ def linkaRec():
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
-        newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+        if int(splitString[2].translate({ord(','): None})) <10:
+            newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+        else:
+            newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
         if currentDate == newDate:
             y.append(x["mmr_change_to_last_game"])
     for n in y:
@@ -203,13 +214,16 @@ def stoutRec():
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
-        newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+        if int(splitString[2].translate({ord(','): None})) <10:
+            newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+        else:
+            newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
         if currentDate == newDate:
             y.append(x["mmr_change_to_last_game"])
     for n in y:
         if n>10:
             a.append("W")
-        elif 10>=n>=0:
+        elif 0>n>10:
             a.append("T")
         else:
             a.append("L")
@@ -236,7 +250,10 @@ def korneenRec():
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
-        newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+        if int(splitString[2].translate({ord(','): None})) <10:
+            newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+        else:
+            newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
         if currentDate == newDate:
             y.append(x["mmr_change_to_last_game"])
     for n in y:
