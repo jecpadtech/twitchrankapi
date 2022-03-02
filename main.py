@@ -102,7 +102,7 @@ def getLeonRec():
     for n in y:
         if n>10:
             a.append("W")
-        elif 0>n>10:
+        elif 0>=n>10:
             a.append("T")
         else:
             a.append("L")
@@ -172,7 +172,7 @@ def linkaRec():
     for n in y:
         if n>10:
             a.append("W")
-        elif 10>=n>=0:
+        elif 0>=n>10:
             a.append("T")
         else:
             a.append("L")
@@ -223,7 +223,7 @@ def stoutRec():
     for n in y:
         if n>10:
             a.append("W")
-        elif 0>n>10:
+        elif 0>=n>10:
             a.append("T")
         else:
             a.append("L")
@@ -259,7 +259,7 @@ def korneenRec():
     for n in y:
         if n>0:
             a.append("W")
-        elif 0>n>10:
+        elif 0>=n>10:
             a.append("T")
         else:
             a.append("L")
