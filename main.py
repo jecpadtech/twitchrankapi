@@ -9,9 +9,11 @@ def getRank(name,irlname,region):
         json_data = response.json()
         for x in json_data["players"]:
             if x["gameName"] == name:
-                return irlname + " is currently ranked #" + str(x["leaderboardRank"])+ " on the leaderboard with " + str(x["numberOfWins"]) + " wins and a ranked rating of " + str(x["rankedRating"])
+                return "/me " + irlname + " is currently ranked #" + str(x["leaderboardRank"])+ " on the leaderboard with " + str(x["numberOfWins"]) + " wins and a ranked rating of " + str(x["rankedRating"])
+            else:
+                return "/me Failed to find " + irlname + " on the leaderboard."
     except:
-        return "Failed to find " + irlname + " on the leaderboard"
+        return "@vineyard__ modCheck"
 def getRecord(name,tag,irlname):
     y=[]
     a=[]
