@@ -32,7 +32,6 @@ def getRecord(name,tag,irlname):
 
         if currentDate == newDate:
             y.append(x["mmr_change_to_last_game"])
-        print(splitString)
     for n in y:
         if n>10:
             a.append("W")
