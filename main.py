@@ -280,7 +280,12 @@ def alexRecord():
 @app.route('/josh/leaderboard', methods=['POST', 'GET'])
 def joshLeaderboard():    
     return getRank("JoshMun","Josh","eu")
-
+@app.route('/russ/leaderboard', methods=['POST', 'GET'])
+def russLeaderboard():    
+    return getRank("Guild Russ","Russ","eu")
+@app.route('/russ/record', methods=['POST', 'GET'])
+def russRecord():    
+    return getRecord("Guild Russ","WRLD","Russ")
 
 if __name__ == "__main__":
     app.run(debug=False)
