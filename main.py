@@ -286,6 +286,14 @@ def russLeaderboard():
 @app.route('/russ/record', methods=['POST', 'GET'])
 def russRecord():    
     return getRecord("Guild Russ","WRLD","Russ")
-
+@app.route('/bacon/record', methods=['POST', 'GET'])
+def baconRecord():    
+    return getRecord("PP PrinceBaconTV","YEET","PB")
+@app.route('/bacon', methods=['POST', 'GET'])
+def baconRank():
+    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/PP%20PrinceBaconTV/TTV")
+    json_data = response.json()
+    x = json_data["data"]
+    return "PB is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
 if __name__ == "__main__":
     app.run(debug=False)
