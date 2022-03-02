@@ -291,7 +291,7 @@ def baconRecord():
     return getRecord("PP PrinceBaconTV","YEET","PB")
 @app.route('/bacon', methods=['POST', 'GET'])
 def baconRank():
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/PP%20PrinceBaconTV/TTV")
+    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/PP%20PrinceBaconTV/YEET")
     json_data = response.json()
     x = json_data["data"]
     return "PB is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
