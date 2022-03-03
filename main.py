@@ -76,7 +76,7 @@ def hello():
     return "Valorant Record/Leaderboard command for Nightbot. DM Vineyard__ on twitch or Vinayak9769#0861 on discord for a page!"
 @app.errorhandler(500)
 def leaderboarderror(e):
-    return "Failed to find on the leaderboard" 
+    return "Temporarily disabled. Working on it! :0" 
 
 @app.route('/leon', methods=['POST', 'GET'])
 def leonRank():
