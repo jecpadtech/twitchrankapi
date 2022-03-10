@@ -302,7 +302,7 @@ def sukhRank():
     x = json_data["data"]
     return "Sukh is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
 @app.route('/josh/rr', methods=['POST', 'GET'])
-def sukhRR():
+def joshRR():
     y=[]
     a=[]
     loss = 0
