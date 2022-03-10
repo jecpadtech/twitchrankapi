@@ -295,5 +295,11 @@ def baconRank():
     json_data = response.json()
     x = json_data["data"]
     return "PB is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
+@app.route('/sukh', methods=['POST', 'GET'])
+def sukhRank():
+    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr/na/SukhdeepFPS/TTV")
+    json_data = response.json()
+    x = json_data["data"]
+    return "Sukh is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
 if __name__ == "__main__":
     app.run(debug=False)
