@@ -323,5 +323,8 @@ def joshRR():
 
     values = ','.join(str(v) for v in y)
     return "RR change today: " + values + " = "+str(rr)
+@app.route('/kyle/leaderboard', methods=['POST', 'GET'])
+def kylelbRank():
+    return getRank("KYCA","KYCA","eu")
 if __name__ == "__main__":
     app.run(debug=False)
