@@ -164,7 +164,7 @@ def linkaRec():
     resultString = ""
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/Pancakes/1313")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/Pancakes/1313")
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
