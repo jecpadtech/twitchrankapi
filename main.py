@@ -164,7 +164,7 @@ def linkaRec():
     resultString = ""
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
-    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/Pancakes/1313")
+    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/Pancakes/1313")
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
@@ -173,7 +173,10 @@ def linkaRec():
         else:
             newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
         if currentDate == newDate:
-            y.append(x["mmr_change_to_last_game"])
+            if splitString[5] == "AM":
+                pass
+            else:
+                y.append(x["mmr_change_to_last_game"])
     for n in y:
         if n>10:
             a.append("W")
@@ -189,7 +192,10 @@ def linkaRec():
         else:
             draw +=1
         
-    return "Linka has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a[::-1])
+    if wins == 0 and loss == 0 and draw == 0:
+        return "Wait for a competitive game to end!"
+    else:
+        return  "Linka has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a)
 @app.route('/linka', methods=['POST', 'GET'])
 def linkaRank():
     response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/Pancakes/1313")
