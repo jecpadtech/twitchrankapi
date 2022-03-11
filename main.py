@@ -2,10 +2,13 @@ from flask import Flask
 import requests
 from datetime import datetime
 app = Flask(__name__)
+import cloudscraper
+scraper = cloudscraper.create_scraper()
+
 
 def getRank(name,irlname,region):
     try:
-        response = requests.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/" + region)
+        response = scraper.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/" + region)
         json_data = response.json()
         for x in json_data["players"]:
             if x["gameName"] == name:
@@ -22,7 +25,7 @@ def getRecord(name,tag,irlname):
     resultString = ""
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/"+name+"/"+tag)
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/"+name+"/"+tag)
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
@@ -56,7 +59,7 @@ def getRecord(name,tag,irlname):
     
 def maps(name,tag):
     mapList = []
-    response = requests.get("https://api.henrikdev.xyz/valorant/v3/matches/eu/"+name+"/"+tag)
+    response = scraper.get("https://api.henrikdev.xyz/valorant/v3/matches/eu/"+name+"/"+tag)
     json_data = response.json()
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
@@ -91,7 +94,7 @@ def getLeonRec():
     resultString = ""
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/LJPH/018")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/LJPH/018")
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
