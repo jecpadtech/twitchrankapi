@@ -125,7 +125,7 @@ def stoutrank():
     return getRank("SOL Stout","Stout","na")
 @app.route('/josh', methods=['POST', 'GET'])
 def joshRank():
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/JoshMun/Mun")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/JoshMun/Mun")
     json_data = response.json()
     x = json_data["data"]
     return "Josh is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
@@ -143,7 +143,7 @@ def eggoRank():
     return getRank("egnarO5","Eggo","eu")
 @app.route('/kyle', methods=['POST', 'GET'])
 def kyleRank():
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/KYCA/KYCA")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/KYCA/KYCA")
     json_data = response.json()
     x = json_data["data"]
     return "Kyle is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
@@ -164,7 +164,7 @@ def linkaRec():
     resultString = ""
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/Pancakes/1313")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/Pancakes/1313")
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
@@ -192,7 +192,7 @@ def linkaRec():
     return "Linka has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a[::-1])
 @app.route('/linka', methods=['POST', 'GET'])
 def linkaRank():
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/Pancakes/1313")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/Pancakes/1313")
     json_data = response.json()
     x = json_data["data"]
     return "Linka is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
@@ -215,7 +215,7 @@ def stoutRec():
     resultString = ""
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/SOL%20Stout/LUL")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/SOL%20Stout/LUL")
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
@@ -251,7 +251,7 @@ def korneenRec():
     resultString = ""
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/Korneen/TTV")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/Korneen/TTV")
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
@@ -294,13 +294,13 @@ def baconRecord():
     return getRecord("PP PrinceBaconTV","YEET","PB")
 @app.route('/bacon', methods=['POST', 'GET'])
 def baconRank():
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/PP%20PrinceBaconTV/YEET")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/PP%20PrinceBaconTV/YEET")
     json_data = response.json()
     x = json_data["data"]
     return "PB is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
 @app.route('/sukh', methods=['POST', 'GET'])
 def sukhRank():
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr/na/SukhdeepFPS/TTV")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/na/SukhdeepFPS/TTV")
     json_data = response.json()
     x = json_data["data"]
     return "Sukh is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
@@ -312,7 +312,7 @@ def joshRR():
     draw = 0
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
-    response= requests.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/JoshMun/Mun")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/JoshMun/Mun")
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
