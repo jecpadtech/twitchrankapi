@@ -335,5 +335,11 @@ def joshRR():
 @app.route('/kyle/leaderboard', methods=['POST', 'GET'])
 def kylelbRank():
     return getRank("KYCA","KYCA","eu")
+@app.route('/kjja', methods=['POST', 'GET'])
+def kjjaRank():
+    return getRank("Kjja", "Kjja","eu")
+def kjjarecord():
+    return getRecord("Kjja","KLC4E", "Kjja")
+
 if __name__ == "__main__":
     app.run(debug=False)
