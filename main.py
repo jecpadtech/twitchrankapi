@@ -338,6 +338,7 @@ def kylelbRank():
 @app.route('/kjja', methods=['POST', 'GET'])
 def kjjaRank():
     return getRank("Kjja", "Kjja","eu")
+@app.route('/kjja/record', methods=['POST', 'GET'])
 def kjjarecord():
     return getRecord("Kjja","KLC4E", "Kjja")
 
