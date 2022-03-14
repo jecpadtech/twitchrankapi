@@ -285,7 +285,7 @@ def korneenRec():
     return "Korneen has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a) 
 @app.route('/alex/record', methods=['POST', 'GET'])
 def alexRecord():    
-    return "#VineyardForMod peepoRiot YOURMOM"
+    return "https://www.youtube.com/watch?v=t4UwjBqgBCI Banger song NODDERS"
 @app.route('/josh/leaderboard', methods=['POST', 'GET'])
 def joshLeaderboard():    
     return getRank("JoshMun","Josh","eu")
