@@ -234,8 +234,10 @@ def stoutRec():
     for n in y:
         if n>10:
             a.append("W")
-        elif 0>=n>10:
+        elif 0<=n<10:
             a.append("T")
+        elif n == -3:
+            pass
         else:
             a.append("L")
     for l in a:
