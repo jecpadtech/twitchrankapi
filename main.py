@@ -367,7 +367,7 @@ def eggoRR():
 def hussRank():
     return getRank("Huss", "Huss","na")
 @app.route('/korneen/rr', methods=['POST', 'GET'])
-def joshRR():
+def korneenRR():
     y=[]
     a=[]
     loss = 0
