@@ -363,6 +363,9 @@ def eggoRR():
 
     values = ','.join(str(v) for v in y)
     return "RR change today: " + values + " = "+str(rr)
+@app.route('/huss', methods=['POST', 'GET'])
+def hussRank():
+    return getRank("Huss", "Huss","na")
 
 if __name__ == "__main__":
     app.run(debug=False)
