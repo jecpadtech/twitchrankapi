@@ -392,6 +392,12 @@ def korneenRR():
 
     values = ','.join(str(v) for v in y)
     return "RR change today: " + values + " = "+str(rr)
+@app.route('/alex', methods=['POST', 'GET'])
+def alexRank():
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/7AM%20FakeAnanas/TTV")
+    json_data = response.json()
+    x = json_data["data"]
+    return "FakeAnanas is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
 
 if __name__ == "__main__":
     app.run(debug=False)
