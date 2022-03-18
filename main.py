@@ -16,6 +16,12 @@ def getRank(name,irlname,region):
             
     except:
         return "Failed to find " + irlname + " on the leaderboard"
+def getRankv1(name,irlname,region):
+        response = scraper.get("https://api.henrikdev.xyz/valorant/v1/leaderboard/" + region)
+        json_data = response.json()
+        for x in json_data["players"]:
+            if x["gameName"] == name:
+                return "/me " + irlname + " is currently ranked #" + str(x["leaderboardRank"])+ " on the leaderboard with " + str(x["numberOfWins"]) + " wins and a ranked rating of " + str(x["rankedRating"])
 def getRecord(name,tag,irlname):
     y=[]
     a=[]
