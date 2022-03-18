@@ -398,6 +398,11 @@ def alexRank():
     json_data = response.json()
     x = json_data["data"]
     return "FakeAnanas is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
-
+@app.route('/marcus/rank', methods=['POST', 'GET'])
+def marcusRank():
+    try:
+        return getRankv1("Guild SoMarcus","Marcus","eu")
+    except:
+        return getRank("Guild SoMarcus", "Marcus","eu")
 if __name__ == "__main__":
     app.run(debug=False)
