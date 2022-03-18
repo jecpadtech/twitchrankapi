@@ -410,5 +410,8 @@ def marcusRank():
         return getRankv1("Guild SoMarcus","Marcus","eu")
     except:
         return getRank("Guild SoMarcus", "Marcus","eu")
+@app.route('/marcus/record', methods=['POST', 'GET'])
+def marcusrecord():
+    return getRecord("Guild SoMarcus","313", "Marcus")
 if __name__ == "__main__":
     app.run(debug=False)
