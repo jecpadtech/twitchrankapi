@@ -293,9 +293,6 @@ def korneenRec():
             draw +=1
         
     return "Korneen has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a) 
-@app.route('/alex/record', methods=['POST', 'GET'])
-def alexRecord():    
-    return "https://www.youtube.com/watch?v=t4UwjBqgBCI Banger song NODDERS"
 @app.route('/josh/leaderboard', methods=['POST', 'GET'])
 def joshLeaderboard():    
     return getRank("JoshMun","Josh","eu")
@@ -398,12 +395,7 @@ def korneenRR():
 
     values = ','.join(str(v) for v in y)
     return "RR change today: " + values + " = "+str(rr)
-@app.route('/alex', methods=['POST', 'GET'])
-def alexRank():
-    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/7AM%20FakeAnanas/TTV")
-    json_data = response.json()
-    x = json_data["data"]
-    return "FakeAnanas is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
+
 @app.route('/marcus/rank', methods=['POST', 'GET'])
 def marcusRank():
     try:
