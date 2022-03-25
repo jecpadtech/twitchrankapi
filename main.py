@@ -435,5 +435,8 @@ def leonRR():
 
     values = ','.join(str(v) for v in y)
     return "RR change today: " + values + " = "+str(rr)
+@app.route('/alex/record', methods=['POST', 'GET'])
+def alexrecord():
+    return getRecord("7AM FakeAnanas","TTV", "FakeAnanas")
 if __name__ == "__main__":
     app.run(debug=False)
