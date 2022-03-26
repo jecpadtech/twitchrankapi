@@ -453,5 +453,14 @@ def sukhRR():
 
     values = ','.join(str(v) for v in y)
     return "RR change today: " + values + " = "+str(rr)
+@app.route('/knox/rank', methods=['POST', 'GET'])
+def knoxRank():
+    try:
+        return getRankv1("Knox","Knox","eu")
+    except:
+        return getRank("Knox", "Knox","eu")
+@app.route('/knox/record', methods=['POST', 'GET'])
+def knoxrecord():
+    return getRecord("Knox","netic", "Knox")
 if __name__ == "__main__":
     app.run(debug=False)
