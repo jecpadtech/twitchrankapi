@@ -311,12 +311,7 @@ def baconRank():
     json_data = response.json()
     x = json_data["data"]
     return "PB is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
-@app.route('/sukh', methods=['POST', 'GET'])
-def sukhRank():
-    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/na/SukhdeepFPS/TTV")
-    json_data = response.json()
-    x = json_data["data"]
-    return "Sukh is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
+
 @app.route('/josh/rr', methods=['POST', 'GET'])
 def joshRR():
     y=[]
@@ -437,7 +432,7 @@ def sukhRank():
     except:
         return getRank("deepFPS", "DeepFPS","na")
 @app.route('/sukh/rr', methods=['POST', 'GET'])
-def leonRR():
+def sukhRR():
     y=[]
     a=[]
     loss = 0
