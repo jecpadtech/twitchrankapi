@@ -430,5 +430,33 @@ def leonRR():
 @app.route('/alex/record', methods=['POST', 'GET'])
 def alexrecord():
     return getRecord("7AM FakeAnanas","TTV", "FakeAnanas")
+@app.route('/sukh/rank', methods=['POST', 'GET'])
+def sukhRank():
+        try:
+        return getRankv1("DeepFPS","DeepFPS","na")
+    except:
+        return getRank("deepFPS", "DeepFPS","na")
+@app.route('/sukh/rr', methods=['POST', 'GET'])
+def leonRR():
+    y=[]
+    a=[]
+    loss = 0
+    draw = 0
+    today = datetime.today()
+    currentDate = today.strftime("%B %d, %Y")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/deepFPS/TTV")
+    json_data = response.json()
+    for x in json_data["data"]:
+        splitString = x["date"].split()
+        if int(splitString[2].translate({ord(','): None})) <10:
+            newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+        else:
+            newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+        if currentDate == newDate:
+            y.append(x["mmr_change_to_last_game"])
+    rr = sum(y)
+
+    values = ','.join(str(v) for v in y)
+    return "RR change today: " + values + " = "+str(rr)
 if __name__ == "__main__":
     app.run(debug=False)
