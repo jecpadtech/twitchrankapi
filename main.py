@@ -428,7 +428,7 @@ def alexrecord():
 @app.route('/sukh/rank', methods=['POST', 'GET'])
 def sukhRank():
     try:
-        return getRankv1("DeepFPS","DeepFPS","na")
+        return getRankv1("deepFPS","DeepFPS","na")
     except:
         return getRank("deepFPS", "DeepFPS","na")
 @app.route('/sukh/rr', methods=['POST', 'GET'])
