@@ -521,7 +521,7 @@ def ludRR():
         draw = 0
         today = datetime.today()
         currentDate = today.strftime("%B %d, %Y")
-        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/deepFPS/TTV")
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/CLWN%20Luddee/1337")
         json_data = response.json()
         for x in json_data["data"]:
             splitString = x["date"].split()
@@ -542,7 +542,7 @@ def ludRR():
         draw = 0
         today = datetime.today()
         currentDate = today.strftime("%B %d, %Y")
-        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/deepFPS/TTV")
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/CLWN%Luddee/1337")
         json_data = response.json()
         for x in json_data["data"]:
             splitString = x["date"].split()
