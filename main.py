@@ -172,10 +172,16 @@ def stoutrank():
     return getRank("SOL Stout","Stout","na")
 @app.route('/josh', methods=['POST', 'GET'])
 def joshRank():
-    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/JoshMun/Mun")
-    json_data = response.json()
-    x = json_data["data"]
-    return "Josh is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
+    try:
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/JoshMun/Mun")
+        json_data = response.json()
+        x = json_data["data"]
+        return "Josh is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
+    except:
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/JoshMun/Mun")
+        json_data = response.json()
+        x = json_data["data"]
+        return "Josh is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
 @app.route('/josh/record', methods=['POST', 'GET'])
 def joshrecord():
     return getRecord("JoshMun","Mun", "Josh")
