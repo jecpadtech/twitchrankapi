@@ -227,7 +227,7 @@ def stoutRec():
     resultString = ""
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
-    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/SOL%20Stout/LUL")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/Stout/dad")
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
