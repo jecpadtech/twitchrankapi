@@ -104,9 +104,9 @@ def getRecord(name,tag,irlname):
         else:
             return irlname + " has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a)
     
-def maps(name,tag):
+def maps(name,tag,region):
     mapList = []
-    response = scraper.get("https://api.henrikdev.xyz/valorant/v3/matches/eu/"+name+"/"+tag)
+    response = scraper.get("https://api.henrikdev.xyz/valorant/v3/matches/"+ region+"/"+name+"/"+tag)
     json_data = response.json()
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
@@ -615,6 +615,9 @@ def drloffRR():
 @app.route('/drloff/record', methods=['POST', 'GET'])
 def drloffrecord():
     return getRecord("DrLoffTV","9000", "DrloffTV")
+@app.route('/sukh/maps', methods=['POST', 'GET'])
+def sukhMaps():
+    return maps("deepFPS","TTV", "na")
       
 
 
