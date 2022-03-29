@@ -694,7 +694,7 @@ def alexmaps():
 def ludlb():
     return getRank("CLWN Luddee","Luddee","eu")
 @app.route('/swedish/rr', methods=['POST', 'GET'])
-def ludRR():
+def swedeRR():
     try:
         y=[]
         a=[]
