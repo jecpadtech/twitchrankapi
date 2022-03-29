@@ -692,10 +692,8 @@ def alexmaps():
         return "Today's map history is "+ str(mapList)
 @app.route('/lud/lb', methods=['POST', 'GET'])
 def ludlb():
-    try:
-        return getRankv1("CLWN Luddee","Luddee","eu")
-    except:
-        return getRank("CLWN Luddee", "Luddee","eu")
+    return getRank("CLWN Luddee","Luddee","eu")
+
       
 
 
