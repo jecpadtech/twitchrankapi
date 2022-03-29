@@ -693,6 +693,50 @@ def alexmaps():
 @app.route('/lud/lb', methods=['POST', 'GET'])
 def ludlb():
     return getRank("CLWN Luddee","Luddee","eu")
+@app.route('/swedish/rr', methods=['POST', 'GET'])
+def ludRR():
+    try:
+        y=[]
+        a=[]
+        loss = 0
+        draw = 0
+        today = datetime.today()
+        currentDate = today.strftime("%B %d, %Y")
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/LittleSwede/IKEA")
+        json_data = response.json()
+        for x in json_data["data"]:
+            splitString = x["date"].split()
+            if int(splitString[2].translate({ord(','): None})) <10:
+                newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+            else:
+                newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+            if currentDate == newDate:
+                y.append(x["mmr_change_to_last_game"])
+        rr = sum(y)
+
+        values = ','.join(str(v) for v in y)
+        return "RR change today: " + values + " = "+str(rr) 
+    except:
+        y=[]
+        a=[]
+        loss = 0
+        draw = 0
+        today = datetime.today()
+        currentDate = today.strftime("%B %d, %Y")
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/CLWN%Luddee/1337")
+        json_data = response.json()
+        for x in json_data["data"]:
+            splitString = x["date"].split()
+            if int(splitString[2].translate({ord(','): None})) <10:
+                newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+            else:
+                newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+            if currentDate == newDate:
+                y.append(x["mmr_change_to_last_game"])
+        rr = sum(y)
+
+        values = ','.join(str(v) for v in y)
+        return "RR change today: " + values + " = "+str(rr)
 
       
 
