@@ -690,6 +690,12 @@ def alexmaps():
                     if currentDate == newDate:
                         mapList.append(json_data["data"][x]["metadata"]["map"])
         return "Today's map history is "+ str(mapList)
+@app.route('/lud/lb', methods=['POST', 'GET'])
+def ludlb():
+    try:
+        return getRankv1("CLWN Luddee","Luddee","eu")
+    except:
+        return getRank("CLWN Luddee", "Luddee","eu")
       
 
 
