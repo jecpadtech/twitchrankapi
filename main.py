@@ -660,7 +660,7 @@ def sukhMaps():
 def alexmaps():
     try:
         mapList = []
-        response = scraper.get("https://api.henrikdev.xyz/valorant/v3/by-puuid/matches/eu/fb3e0b5f-2988-56bf-b9dc-aca91cec755a")
+        response = scraper.get("https://api.henrikdev.xyz/valorant/v3/by-puuid/matches/eu/fb3e0b5f-2988-56bf-b9dc-aca91cec755a?filter=competitive&size=10")
         json_data = response.json()
         today = datetime.today()
         currentDate = today.strftime("%B %d, %Y")
