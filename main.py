@@ -667,7 +667,7 @@ def alexmaps():
         if json_data["status"] == 200:
             today = datetime.today()
             currentDate = today.strftime("%B %d, %Y")
-            for x in range(0,5):
+            for x in range(0,10):
                 if json_data["data"][x]["metadata"]["mode"] == "Competitive":
                     splitString = json_data["data"][x]["metadata"]["game_start_patched"].split()
                     newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
@@ -683,7 +683,7 @@ def alexmaps():
         if json_data["status"] == 200:
             today = datetime.today()
             currentDate = today.strftime("%B %d, %Y")
-            for x in range(0,5):
+            for x in range(0,10):
                 if json_data["data"][x]["metadata"]["mode"] == "Competitive":
                     splitString = json_data["data"][x]["metadata"]["game_start_patched"].split()
                     newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
