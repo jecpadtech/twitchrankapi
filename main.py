@@ -737,7 +737,18 @@ def swedeRR():
 
         values = ','.join(str(v) for v in y)
         return "RR change today: " + values + " = "+str(rr)
-
+@app.route('/spicy', methods=['POST', 'GET'])
+def spicyRank():
+    try:
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/SpicyMufn/1418")
+        json_data = response.json()
+        x = json_data["data"]
+        return "SpicyMufn is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
+    except:
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/SpicyMufn/1418")
+        json_data = response.json()
+        x = json_data["data"]
+        return "SpicyMufn is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
       
 
 
