@@ -123,7 +123,7 @@ def maps(name,tag,region):
 
 @app.route('/')
 def hello():
-    return "Valorant Record/Leaderboard command for Nightbot. DM Vineyard__ on twitch or Vinayak9769#0861 on discord for a page!"
+    return "Valorant Record/Leaderboard command for Nightbot. DM Vineyard__ on twitch or Vinayak9769#0861 on discord for a page! \n Currently being used in: FakeAnanas,SoMarcus,Knoxnetic,LittleSwedish,Josh_Mun,ItsLinka,EgnarO5,KYCA,LJPH18,Korneen,stoutxiv,Kjja,deepFPS"
 @app.errorhandler(500)
 def leaderboarderror(e):
     return "Temporarily disabled. Working on it! :0" 
