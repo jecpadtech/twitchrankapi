@@ -169,7 +169,7 @@ def getLeonRec():
     return "Leon has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a[::-1])
 @app.route('/Stout', methods=['POST', 'GET'])
 def stoutrank():
-    return getRank("SOL Stout","Stout","na")
+    return getRank("Stout","Stout","na")
 @app.route('/josh', methods=['POST', 'GET'])
 def joshRank():
     try:
