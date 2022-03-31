@@ -751,7 +751,7 @@ def spicyRank():
         return "SpicyMufn is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
       
 @app.route('/lud/lb2', methods=['POST', 'GET'])
-def ludlb():
+def ludlb2():
     try:
         return getRankv1("CLWN Luddee","Luddee","eu")
     except:
