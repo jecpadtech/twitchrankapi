@@ -750,7 +750,12 @@ def spicyRank():
         x = json_data["data"]
         return "SpicyMufn is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
       
-
+@app.route('/lud/lb2', methods=['POST', 'GET'])
+def ludlb():
+    try:
+        return getRankv1("CLWN Luddee","Luddee","eu")
+    except:
+        return getRank("CLWN Luddee","Luddee","eu")
 
 if __name__ == "__main__":
     app.run(debug=False)
