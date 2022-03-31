@@ -475,13 +475,13 @@ def korneenRR():
 
     values = ','.join(str(v) for v in y)
     return "RR change today: " + values + " = "+str(rr)
-
 @app.route('/marcus/rank', methods=['POST', 'GET'])
 def marcusRank():
     try:
         return getRankv1("Guild SoMarcus","Marcus","eu")
     except:
         return getRank("Guild SoMarcus", "Marcus","eu")
+   
 @app.route('/marcus/record', methods=['POST', 'GET'])
 def marcusrecord():
     return getRecord("Guild SoMarcus","313", "Marcus")
