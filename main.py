@@ -481,6 +481,9 @@ def marcusRank():
         return getRankv1("Guild SoMarcus","Marcus","eu")
     except:
         return getRank("Guild SoMarcus", "Marcus","eu")
+    else:
+        return getRank("Guild SoMarcus", "Marcus","eu")
+        
    
 @app.route('/marcus/record', methods=['POST', 'GET'])
 def marcusrecord():
@@ -755,6 +758,8 @@ def ludlb2():
     try:
         return getRankv1("CLWN Luddee","Luddee","eu")
     except:
+        return getRank("CLWN Luddee","Luddee","eu")
+    else:
         return getRank("CLWN Luddee","Luddee","eu")
 
 if __name__ == "__main__":
