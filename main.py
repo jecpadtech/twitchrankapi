@@ -480,7 +480,7 @@ def marcusRank():
     try:
         return getRankv1("Guild SoMarcus","Marcus","eu")
     except TypeError:
-        return getRank("Guild SoMarcus", "Marcus","eu")
+        return "Failed to find on the leaderboard"
 
         
    
