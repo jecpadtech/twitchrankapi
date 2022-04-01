@@ -776,7 +776,7 @@ def swedeRR():
         draw = 0
         today = datetime.today()
         currentDate = today.strftime("%B %d, %Y")
-        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/CLWN%Luddee/1337")
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/LittleSwede/IKEA")
         json_data = response.json()
         for x in json_data["data"]:
             splitString = x["date"].split()
@@ -814,7 +814,53 @@ def ludlb2():
             if x["gameName"] == "Guild SoMarcus":
                 return "/me " + "SoMarcus" + " is currently ranked #" + str(x["leaderboardRank"])+ " on the leaderboard with " + str(x["numberOfWins"]) + " wins and a ranked rating of " + str(x["rankedRating"])
 
+@app.route('/spicy/rr', methods=['POST', 'GET'])
+def spicyRR():
+    try:
+        y=[]
+        a=[]
+        loss = 0
+        draw = 0
+        today = datetime.today()
+        currentDate = today.strftime("%B %d, %Y")
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/SpicyMufn/1418")
+        json_data = response.json()
+        for x in json_data["data"]:
+            splitString = x["date"].split()
+            if int(splitString[2].translate({ord(','): None})) <10:
+                newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+            else:
+                newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+            if currentDate == newDate:
+                y.append(x["mmr_change_to_last_game"])
+        rr = sum(y)
 
+        values = ','.join(str(v) for v in y)
+        return "RR change today: " + values + " = "+str(rr) 
+    except:
+        y=[]
+        a=[]
+        loss = 0
+        draw = 0
+        today = datetime.today()
+        currentDate = today.strftime("%B %d, %Y")
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/SpicyMufn/1418")
+        json_data = response.json()
+        for x in json_data["data"]:
+            splitString = x["date"].split()
+            if int(splitString[2].translate({ord(','): None})) <10:
+                newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+            else:
+                newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+            if currentDate == newDate:
+                y.append(x["mmr_change_to_last_game"])
+        rr = sum(y)
+
+        values = ','.join(str(v) for v in y)
+        return "RR change today: " + values + " = "+str(rr)
+@app.route('/spicy/record', methods=['POST', 'GET'])
+def spicyRecord():
+    return getRecord("SpicyMufn","1418", "Spicy")
 
 if __name__ == "__main__":
     app.run(debug=False)
