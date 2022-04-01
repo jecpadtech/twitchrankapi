@@ -675,10 +675,13 @@ def alexmaps():
             for x in range(0,10):
                 if json_data["data"][x]["metadata"]["mode"] == "Competitive":
                     splitString = json_data["data"][x]["metadata"]["game_start_patched"].split()
-                    newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+                    if int(splitString[2].translate({ord(','): None})) <10:
+                        newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+                    else:
+                        newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
                     if currentDate == newDate:
                         mapList.append(json_data["data"][x]["metadata"]["map"])
-        return "Today's map history is "+ str(mapList)
+            return "Today's map history is "+ str(mapList)
     except:
         mapList = []
         response = scraper.get("https://api.henrikdev.xyz/valorant/v3/by-puuid/matches/eu/fb3e0b5f-2988-56bf-b9dc-aca91cec755a?filter=competitive&size=10")
@@ -691,10 +694,13 @@ def alexmaps():
             for x in range(0,10):
                 if json_data["data"][x]["metadata"]["mode"] == "Competitive":
                     splitString = json_data["data"][x]["metadata"]["game_start_patched"].split()
-                    newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+                    if int(splitString[2].translate({ord(','): None})) <10:
+                        newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+                    else:
+                        newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
                     if currentDate == newDate:
                         mapList.append(json_data["data"][x]["metadata"]["map"])
-        return "Today's map history is "+ str(mapList)
+            return "Today's map history is "+ str(mapList)
 @app.route('/lud/lb', methods=['POST', 'GET'])
 def ludlb():
     return getRank("CLWN Luddee","Luddee","eu")
