@@ -479,8 +479,13 @@ def korneenRR():
 def marcusRank():
     try:
         return getRankv1("Guild SoMarcus","Marcus","eu")
-    except TypeError:
-        return "Failed to find on the leaderboard"
+    except:
+        response = scraper.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/eu")
+        json_data = response.json()
+        for x in json_data["players"]:
+            if x["gameName"] == "Guild SoMarcus":
+                return "/me " + "SoMarcus" + " is currently ranked #" + str(x["leaderboardRank"])+ " on the leaderboard with " + str(x["numberOfWins"]) + " wins and a ranked rating of " + str(x["rankedRating"])
+        
 
         
    
