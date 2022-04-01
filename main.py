@@ -629,7 +629,10 @@ def drloffRR():
         else:
             newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
         if currentDate == newDate:
-            y.append(x["mmr_change_to_last_game"])
+            if splitString[5] == "AM":
+                pass
+            else:
+                y.append(x["mmr_change_to_last_game"])
     rr = sum(y)
 
     values = ','.join(str(v) for v in y)
@@ -657,7 +660,46 @@ def drloffRR():
       return "RR change today: " + values + " = "+str(rr)
 @app.route('/drloff/record', methods=['POST', 'GET'])
 def drloffrecord():
-    return getRecord("DrLoffTV","9000", "DrloffTV")
+    y=[]
+    a=[]
+    wins = 0
+    loss = 0
+    draw = 0
+    resultString = ""
+    today = datetime.today()
+    currentDate = today.strftime("%B %d, %Y")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/DrLoffTV/9000")
+    json_data = response.json()
+    for x in json_data["data"]:
+        splitString = x["date"].split()
+        if int(splitString[2].translate({ord(','): None})) <10:
+            newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+        else:
+            newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+        if currentDate == newDate:
+            if splitString[5] == "AM":
+                pass
+            else:
+                y.append(x["mmr_change_to_last_game"])
+    for n in y:
+        if n>10:
+            a.append("W")
+        elif 0<=n<10:
+            a.append("T")
+        else:
+            a.append("L")
+    for l in a:
+        if l == "W":
+            wins+=1
+        elif l == "L":
+            loss +=1
+        else:
+            draw +=1
+        
+    if wins == 0 and loss == 0 and draw == 0:
+        return "Wait for a competitive game to end!"
+    else:
+        return  "DrloffTV has won " + str(wins) + " games and lost " + str(loss) + " games today. " + "Record- " + str(a)
 @app.route('/sukh/maps', methods=['POST', 'GET'])
 def sukhMaps():
     return maps("deepFPS","TTV", "na")
