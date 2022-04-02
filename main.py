@@ -861,6 +861,9 @@ def spicyRR():
 @app.route('/spicy/record', methods=['POST', 'GET'])
 def spicyRecord():
     return getRecord("SpicyMufn","1418", "Spicy")
+@app.route('/luckr/lb', methods=['POST', 'GET'])
+def luckrlb():
+        return getRankv1("Alliance luckRRR","LuckRRR","eu")
 
 if __name__ == "__main__":
     app.run(debug=False)
