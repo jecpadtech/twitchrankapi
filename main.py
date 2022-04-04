@@ -914,6 +914,12 @@ def knoxRR():
 @app.route('/korneen/lb', methods=['POST', 'GET'])
 def korneenlb():
         return getRank("Korneen","Korneen","na")
+@app.route('/alex/rank', methods=['POST', 'GET'])
+def alexrank2():
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/7AM%20FakeAnanas/TTV")
+    json_data = response.json()
+    x = json_data["data"]
+    return "FakeAnanas is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
 
 if __name__ == "__main__":
     app.run(debug=False)
