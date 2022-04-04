@@ -911,6 +911,9 @@ def knoxRR():
 
         values = ','.join(str(v) for v in y)
         return "RR change today: " + values + " = "+str(rr)
+@app.route('/korneen/lb', methods=['POST', 'GET'])
+def korneenlb():
+        return getRank("Korneen","Korneen","na")
 
 if __name__ == "__main__":
     app.run(debug=False)
