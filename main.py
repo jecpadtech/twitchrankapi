@@ -492,26 +492,48 @@ def marcusrecord():
     return getRecord("Guild SoMarcus","313", "Marcus")
 @app.route('/leon/rr', methods=['POST', 'GET'])
 def leonRR():
-    y=[]
-    a=[]
-    loss = 0
-    draw = 0
-    today = datetime.today()
-    currentDate = today.strftime("%B %d, %Y")
-    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/LJPH/018")
-    json_data = response.json()
-    for x in json_data["data"]:
-        splitString = x["date"].split()
-        if int(splitString[2].translate({ord(','): None})) <10:
-            newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
-        else:
-            newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
-        if currentDate == newDate:
-            y.append(x["mmr_change_to_last_game"])
-    rr = sum(y)
+    try:
+        y=[]
+        a=[]
+        loss = 0
+        draw = 0
+        today = datetime.today()
+        currentDate = today.strftime("%B %d, %Y")
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/LJPH/018")
+        json_data = response.json()
+        for x in json_data["data"]:
+            splitString = x["date"].split()
+            if int(splitString[2].translate({ord(','): None})) <10:
+                newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+            else:
+                newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+            if currentDate == newDate:
+                y.append(x["mmr_change_to_last_game"])
+        rr = sum(y)
 
-    values = ','.join(str(v) for v in y)
-    return "RR change today: " + values + " = "+str(rr)
+        values = ','.join(str(v) for v in y)
+        return "RR change today: " + values + " = "+str(rr)
+    except:
+        y=[]
+        a=[]
+        loss = 0
+        draw = 0
+        today = datetime.today()
+        currentDate = today.strftime("%B %d, %Y")
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/LJPH/018")
+        json_data = response.json()
+        for x in json_data["data"]:
+            splitString = x["date"].split()
+            if int(splitString[2].translate({ord(','): None})) <10:
+                newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+            else:
+                newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+            if currentDate == newDate:
+                y.append(x["mmr_change_to_last_game"])
+        rr = sum(y)
+
+        values = ','.join(str(v) for v in y)
+        return "RR change today: " + values + " = "+str(rr)
 @app.route('/alex/record', methods=['POST', 'GET'])
 def alexrecord():
     return getRecord("7AM FakeAnanas","TTV", "FakeAnanas")
@@ -922,26 +944,47 @@ def alexrank2():
     return "FakeAnanas is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
 @app.route('/marcus/rr', methods=['POST', 'GET'])
 def marcusRR():
-    y=[]
-    a=[]
-    loss = 0
-    draw = 0
-    today = datetime.today()
-    currentDate = today.strftime("%B %d, %Y")
-    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/Guild%20SoMarcus/313")
-    json_data = response.json()
-    for x in json_data["data"]:
-        splitString = x["date"].split()
-        if int(splitString[2].translate({ord(','): None})) <10:
-            newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
-        else:
-            newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
-        if currentDate == newDate:
-            y.append(x["mmr_change_to_last_game"])
-    rr = sum(y)
+    try:
+        y=[]
+        a=[]
+        loss = 0
+        draw = 0
+        today = datetime.today()
+        currentDate = today.strftime("%B %d, %Y")
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/Guild%20SoMarcus/313")
+        json_data = response.json()
+        for x in json_data["data"]:
+            splitString = x["date"].split()
+            if int(splitString[2].translate({ord(','): None})) <10:
+                newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+            else:
+                newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+            if currentDate == newDate:
+                y.append(x["mmr_change_to_last_game"])
+        rr = sum(y)
 
-    values = ','.join(str(v) for v in y)
-    return "RR change today: " + values + " = "+str(rr)
+        values = ','.join(str(v) for v in y)
+        return "RR change today: " + values + " = "+str(rr)
+    except:
+        y=[]
+        a=[]
+        loss = 0
+        draw = 0
+        today = datetime.today()
+        currentDate = today.strftime("%B %d, %Y")
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/eu/Guild%20SoMarcus/313")
+        json_data = response.json()
+        for x in json_data["data"]:
+            splitString = x["date"].split()
+            if int(splitString[2].translate({ord(','): None})) <10:
+                newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+            else:
+                newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+            if currentDate == newDate:
+                y.append(x["mmr_change_to_last_game"])
+        rr = sum(y)
+
+        values = ','.join(str(v) for v in y)
 
 if __name__ == "__main__":
     app.run(debug=False)
