@@ -825,16 +825,6 @@ def spicyRank():
         x = json_data["data"]
         return "SpicyMufn is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
       
-@app.route('/lud/lb2', methods=['POST', 'GET'])
-def ludlb2():
-    try:
-        return getRankv1("CLWN Luddee","Luddee","eu")
-    except:
-        response = scraper.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/eu")
-        json_data = response.json()
-        for x in json_data["players"]:
-            if x["gameName"] == "Guild SoMarcus":
-                return "/me " + "SoMarcus" + " is currently ranked #" + str(x["leaderboardRank"])+ " on the leaderboard with " + str(x["numberOfWins"]) + " wins and a ranked rating of " + str(x["rankedRating"])
 
 @app.route('/spicy/rr', methods=['POST', 'GET'])
 def spicyRR():
@@ -985,6 +975,12 @@ def marcusRR():
         rr = sum(y)
 
         values = ','.join(str(v) for v in y)
+@app.route('/huss/rank', methods=['POST', 'GET'])
+def hussrank2():
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/na/Huss/YTUBE")
+    json_data = response.json()
+    x = json_data["data"]
+    return "Huss is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
 
 if __name__ == "__main__":
     app.run(debug=False)
