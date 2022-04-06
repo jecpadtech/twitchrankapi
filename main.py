@@ -456,21 +456,20 @@ def eggoRR():
     rr = sum(y)
 
     values = ','.join(str(v) for v in y)
-    return "RR change today: " + values + " = "+str(rr)
 @app.route('/huss', methods=['POST', 'GET'])
 def husslbrank():
     try:
-        response = scraper.get("https://api.henrikdev.xyz/valorant/v1/leaderboard/na")
+        response = scraper.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/na")
         json_data = response.json()
         for x in json_data["players"]:
             if x["gameName"] == "Huss":
-                return "#" + str(x["leaderboardRank"])+ "|" + str(x["numberOfWins"]) + " wins|" + str(x["rankedRating"] + " RR")
+                return "#" + str(x["leaderboardRank"])+ "|" + str(x["numberOfWins"]) + " wins|" + str(x["rankedRating"]) + " RR"
     except:
         response = scraper.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/na")
         json_data = response.json()
         for x in json_data["players"]:
             if x["gameName"] == "Huss":
-                return str(x["leaderboardRank"])+ "|" + str(x["numberOfWins"]) + "|" + str(x["rankedRating"])
+                return "#" + str(x["leaderboardRank"])+ "|" + str(x["numberOfWins"]) + " wins|" + str(x["rankedRating"]) + " RR"
 @app.route('/korneen/rr', methods=['POST', 'GET'])
 def korneenRR():
     y=[]
