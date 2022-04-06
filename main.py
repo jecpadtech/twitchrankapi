@@ -320,7 +320,7 @@ def korneenRec():
         resultString = ""
         today = datetime.today()
         currentDate = today.strftime("%B %d, %Y")
-        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/Korneen/TTV")
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/Korneen/086")
         json_data = response.json()
         for x in json_data["data"]:
             splitString = x["date"].split()
@@ -357,7 +357,7 @@ def korneenRec():
         resultString = ""
         today = datetime.today()
         currentDate = today.strftime("%B %d, %Y")
-        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/Korneen/TTV")
+        response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/Korneen/086")
         json_data = response.json()
         for x in json_data["data"]:
             splitString = x["date"].split()
@@ -464,7 +464,7 @@ def husslbrank():
         json_data = response.json()
         for x in json_data["players"]:
             if x["gameName"] == "Huss":
-                return str(x["leaderboardRank"])+ "|" + str(x["numberOfWins"]) + "|" + str(x["rankedRating"])
+                return "#" + str(x["leaderboardRank"])+ "|" + str(x["numberOfWins"]) + " wins|" + str(x["rankedRating"] + " RR")
     except:
         response = scraper.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/na")
         json_data = response.json()
@@ -479,7 +479,7 @@ def korneenRR():
     draw = 0
     today = datetime.today()
     currentDate = today.strftime("%B %d, %Y")
-    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/Korneen/TTV")
+    response= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr-history/na/Korneen/086")
     json_data = response.json()
     for x in json_data["data"]:
         splitString = x["date"].split()
