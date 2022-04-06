@@ -466,7 +466,7 @@ def husslbrank():
             if x["gameName"] == name:
                 return str(x["leaderboardRank"])+ "|" + str(x["numberOfWins"]) + "|" + str(x["rankedRating"])
     except:
-        response = scraper.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/" + region)
+        response = scraper.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/na")
         json_data = response.json()
         for x in json_data["players"]:
             if x["gameName"] == name:
