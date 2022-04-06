@@ -458,6 +458,7 @@ def eggoRR():
     values = ','.join(str(v) for v in y)
     return "RR change today: " + values + " = "+str(rr)
 @app.route('/huss', methods=['POST', 'GET'])
+def husslbrank()
     try:
         response = scraper.get("https://api.henrikdev.xyz/valorant/v1/leaderboard/na")
         json_data = response.json()
