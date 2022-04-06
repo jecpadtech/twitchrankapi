@@ -463,13 +463,13 @@ def husslbrank():
         response = scraper.get("https://api.henrikdev.xyz/valorant/v1/leaderboard/na")
         json_data = response.json()
         for x in json_data["players"]:
-            if x["gameName"] == name:
+            if x["gameName"] == "Huss:
                 return str(x["leaderboardRank"])+ "|" + str(x["numberOfWins"]) + "|" + str(x["rankedRating"])
     except:
         response = scraper.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/na")
         json_data = response.json()
         for x in json_data["players"]:
-            if x["gameName"] == name:
+            if x["gameName"] == "Huss:
                 return str(x["leaderboardRank"])+ "|" + str(x["numberOfWins"]) + "|" + str(x["rankedRating"])
 @app.route('/korneen/rr', methods=['POST', 'GET'])
 def korneenRR():
