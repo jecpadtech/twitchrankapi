@@ -991,6 +991,46 @@ def hussrank2():
     json_data = response.json()
     x = json_data["data"]
     return "Huss is currently " + x["currenttierpatched"] + " with a ranked rating of " +str(x["ranking_in_tier"])
+@app.route('/josh/mapsv2', methods=['POST', 'GET'])
+def joshmapsv2():
+    try:
+        mapList = []
+        response = scraper.get("https://api.henrikdev.xyz/valorant/v3/by-puuid/matches/eu/1d580820-656e-5847-978e-7004fb5c03d7?filter=competitive&size=10")
+        json_data = response.json()
+        today = datetime.today()
+        currentDate = today.strftime("%B %d, %Y")
+        if json_data["status"] == 200:
+            today = datetime.today()
+            currentDate = today.strftime("%B %d, %Y")
+            for x in range(0,10):
+                if json_data["data"][x]["metadata"]["mode"] == "Competitive":
+                    splitString = json_data["data"][x]["metadata"]["game_start_patched"].split()
+                    if int(splitString[2].translate({ord(','): None})) <10:
+                        newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+                    else:
+                        newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+                    if currentDate == newDate:
+                        mapList.append(str(json_data["data"][x]["metadata"]["map"]) + "|" + str(json_data["data"][x]["teams"]["red"]["rounds_won"]) + "-" + str((json_data["data"][x]["teams"]["blue"]["rounds_won"])))
+            return "Today's map history is "+ str(mapList)
+    except:
+        mapList = []
+        response = scraper.get("https://api.henrikdev.xyz/valorant/v3/by-puuid/matches/eu/1d580820-656e-5847-978e-7004fb5c03d7?filter=competitive&size=10")
+        json_data = response.json()
+        today = datetime.today()
+        currentDate = today.strftime("%B %d, %Y")
+        if json_data["status"] == 200:
+            today = datetime.today()
+            currentDate = today.strftime("%B %d, %Y")
+            for x in range(0,10):
+                if json_data["data"][x]["metadata"]["mode"] == "Competitive":
+                    splitString = json_data["data"][x]["metadata"]["game_start_patched"].split()
+                    if int(splitString[2].translate({ord(','): None})) <10:
+                        newDate = "" +splitString[1] + " 0"+ splitString[2] + " "+ splitString[3]
+                    else:
+                        newDate = "" +splitString[1] + " "+ splitString[2] + " "+ splitString[3]
+                    if currentDate == newDate:
+                        mapList.append(str(json_data["data"][x]["metadata"]["map"]) + "|" + str(json_data["data"][x]["teams"]["red"]["rounds_won"]) + "-" + str((json_data["data"][x]["teams"]["blue"]["rounds_won"])))            
+            return "Today's map history is "+ str(mapList)
 
 if __name__ == "__main__":
     app.run(debug=False)
