@@ -995,7 +995,7 @@ def hussrank2():
 def joshmapsv2():
     try:
         mapList = []
-        response = scraper.get("https://api.henrikdev.xyz/valorant/v3/by-puuid/matches/eu/1d580820-656e-5847-978e-7004fb5c03d7?filter=competitive&size=10")
+        response = scraper.get("https://api.henrikdev.xyz/valorant/v3/by-puuid/matches/eu/e97d69ac-5209-54e3-9c92-55f178838531?filter=competitive&size=10")
         json_data = response.json()
         today = datetime.today()
         currentDate = today.strftime("%B %d, %Y")
@@ -1014,7 +1014,7 @@ def joshmapsv2():
             return "Today's map history is "+ str(mapList)
     except:
         mapList = []
-        response = scraper.get("https://api.henrikdev.xyz/valorant/v3/by-puuid/matches/eu/1d580820-656e-5847-978e-7004fb5c03d7?filter=competitive&size=10")
+        response = scraper.get("https://api.henrikdev.xyz/valorant/v3/by-puuid/matches/eu/e97d69ac-5209-54e3-9c92-55f178838531?filter=competitive&size=10")
         json_data = response.json()
         today = datetime.today()
         currentDate = today.strftime("%B %d, %Y")
