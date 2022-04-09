@@ -1031,6 +1031,9 @@ def joshmapsv2():
                     if currentDate == newDate:
                         mapList.append(str(json_data["data"][x]["metadata"]["map"]) + "|" + str(json_data["data"][x]["teams"]["red"]["rounds_won"]) + "-" + str((json_data["data"][x]["teams"]["blue"]["rounds_won"])))            
             return "Today's map history is "+ str(mapList)
+@app.route('/soda/record', methods=['POST', 'GET'])
+def sodaRecord():
+    return getRecord("Sodatv","YTube", "SodaTV")
 
 if __name__ == "__main__":
     app.run(debug=False)
