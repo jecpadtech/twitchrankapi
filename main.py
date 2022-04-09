@@ -456,6 +456,7 @@ def eggoRR():
     rr = sum(y)
 
     values = ','.join(str(v) for v in y)
+    return "RR change today: " + values + " = "+str(rr)
 @app.route('/huss', methods=['POST', 'GET'])
 def husslbrank():
     try:
