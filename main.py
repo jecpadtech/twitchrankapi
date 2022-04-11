@@ -1040,7 +1040,7 @@ def nekronRank():
     return getRank("Nekron","Nekron","eu")
 @app.route('/nekron/record', methods=['POST', 'GET'])
 def nekronRecord():
-    return getRecord("Nekron","0568", "Nekron")
+    return getRecord("Nekron","0658", "Nekron")
 
 if __name__ == "__main__":
     app.run(debug=False)
