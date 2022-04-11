@@ -1035,6 +1035,12 @@ def joshmapsv2():
 @app.route('/soda/record', methods=['POST', 'GET'])
 def sodaRecord():
     return getRecord("Sodatv","YTube", "SodaTV")
+@app.route('/nekron/rank', methods=['POST', 'GET'])
+def nekronRank():
+    return getRank("Nekron","Nekron","eu")
+@app.route('/nekron/record', methods=['POST', 'GET'])
+def sodaRecord():
+    return getRecord("Nekron","0568", "Nekron")
 
 if __name__ == "__main__":
     app.run(debug=False)
