@@ -53,7 +53,7 @@ def getRecord(name,tag,irlname):
         for n in y:
             if n>7:
                 a.append("W")
-            elif 0<=n<10:
+            elif 0<=n<7:
                 a.append("T")
             elif n == -3:
                 pass
@@ -91,9 +91,9 @@ def getRecord(name,tag,irlname):
             if currentDate == newDate:
                 y.append(x["mmr_change_to_last_game"])
         for n in y:
-            if n>10:
+            if n>7:
                 a.append("W")
-            elif 0<=n<10:
+            elif 0<=n<7:
                 a.append("T")
             elif n == -3:
                 pass
