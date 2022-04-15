@@ -1046,12 +1046,15 @@ def ludradRR():
     radiantRR = 0
     response = scraper.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/eu")
     json_data = response.json()
+    response2= scraper.get("https://api.henrikdev.xyz/valorant/v1/mmr/eu/CLWN%20Luddee/1337")
+    json_data2 = response2.json()
+    u = json_data2["data"]
     for x in json_data["players"]:
         if x["leaderboardRank"] == 500:
             radiantRR = x["rankedRating"]
     for y in json_data["players"]:
         if y["gameName"] == "CLWN Luddee":
-            return "Luddee is " + str(radiantRR - y["rankedRating"]) + " RR away from Radiant PauseChamp"
+            return "Luddee is " + str(radiantRR - u["currenttierpatched"]) + " RR away from Radiant PauseChamp"
 
 if __name__ == "__main__":
     app.run(debug=False)
