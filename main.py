@@ -1054,7 +1054,7 @@ def ludradRR():
             radiantRR = x["rankedRating"]
     for y in json_data["players"]:
         if y["gameName"] == "CLWN Luddee":
-            return "Luddee is " + str(int(radiantRR) - int(u["currenttierpatched"])) + " RR away from Radiant PauseChamp"
+            return "Luddee is " + str(int(radiantRR) - int(u["ranking_in_tier"])) + " RR away from Radiant PauseChamp"
 
 if __name__ == "__main__":
     app.run(debug=False)
