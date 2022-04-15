@@ -1041,6 +1041,17 @@ def nekronRank():
 @app.route('/nekron/record', methods=['POST', 'GET'])
 def nekronRecord():
     return getRecord("Nekron","0658", "Nekron")
+@app.route('/lud/radRR', methods=['POST', 'GET'])
+def ludradRR():
+    radiantRR = 0
+    response = scraper.get("https://api.henrikdev.xyz/valorant/v2/leaderboard/eu")
+    json_data = response.json()
+    for x in json_data["players"]:
+        if x["leaderboardRank"] == 500:
+            radiantRR = x["rankedRating"]
+    for y in json_data["players"]:
+        if y["gameName"] == "CLWN Luddee":
+            return "Luddee is " + str(radiantRR - y["rankedRating"]) + " RR away from Radiant PauseChamp"
 
 if __name__ == "__main__":
     app.run(debug=False)
